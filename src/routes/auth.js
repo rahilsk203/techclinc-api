@@ -1,9 +1,13 @@
 import { Router } from '../utils/router.js';
 import { AuthService } from '../utils/auth.js';
 import { createError, createSuccess } from '../middleware/error.js';
-import { requireAdmin } from '../middleware/auth.js';
+import { requireAdmin, authMiddleware } from '../middleware/auth.js';
 
 const router = new Router();
+
+router.get('/test', async (request, env) => {
+  return createSuccess('test');
+});
 
 // Login endpoint
 router.post('/login', async (request, env) => {
@@ -128,7 +132,7 @@ router.post('/logout', async (request, env) => {
 });
 
 // Get current user profile
-router.get('/profile', async (request, env) => {
+router.get('/profile', authMiddleware, async (request, env) => {
   try {
     if (!request.user) {
       return createError('Authentication required', 401);
@@ -152,7 +156,7 @@ router.get('/profile', async (request, env) => {
 });
 
 // Change password
-router.post('/change-password', async (request, env) => {
+router.post('/change-password', authMiddleware, async (request, env) => {
   try {
     if (!request.user) {
       return createError('Authentication required', 401);
@@ -197,4 +201,4 @@ router.post('/change-password', async (request, env) => {
   }
 });
 
-export default router; 
+export default router;

@@ -1,7 +1,7 @@
 // TechClinc API Testing Examples
 // This file contains examples of how to interact with the TechClinc API
 
-const API_BASE_URL = 'https://techclinc-api.techclinic-api.workers.dev';
+const API_BASE_URL = 'http://127.0.0.1:8787';
 
 // Helper function for API calls
 async function apiCall(endpoint, options = {}) {
@@ -370,4 +370,4 @@ module.exports = {
 // Run examples if this file is executed directly
 if (typeof window === 'undefined' && require.main === module) {
   runAllExamples();
-} 
+}

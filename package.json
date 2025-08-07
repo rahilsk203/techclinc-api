@@ -22,7 +22,7 @@
   "author": "TechClinc",
   "license": "MIT",
   "devDependencies": {
-    "wrangler": "^3.0.0"
+    "wrangler": "^4.28.0"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
