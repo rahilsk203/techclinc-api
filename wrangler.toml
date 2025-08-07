@@ -1,0 +1,32 @@
+name = "techclinc-api"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+[env.production]
+name = "techclinc-api-prod"
+
+[env.staging]
+name = "techclinc-api-staging"
+
+# D1 Database
+[[d1_databases]]
+binding = "DB"
+database_name = "techclinc-db"
+database_id = "9f0e14f3-4505-43ae-b00a-b8b58ee4410d"
+
+# KV Namespaces
+[[kv_namespaces]]
+binding = "SHOP_CONFIG"
+id = "644f461c836c47e59447833339fe3af9"
+preview_id = "your-kv-config-preview-id-here"
+
+[[kv_namespaces]]
+binding = "AUTH_TOKENS"
+id = "431916cc323040818022e5fd5ccdedf0"
+preview_id = "your-kv-auth-preview-id-here"
+
+# Environment Variables
+[vars]
+ENVIRONMENT = "development"
+JWT_SECRET = "your-jwt-secret-here"
+ADMIN_REGISTRATION_KEY = "your-admin-key-here"

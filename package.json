@@ -1,0 +1,32 @@
+{
+  "name": "techclinc-api",
+  "version": "1.0.0",
+  "description": "Mobile repair shop backend system using Cloudflare Workers",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "deploy:staging": "wrangler deploy --env staging",
+    "deploy:prod": "wrangler deploy --env production",
+    "db:create": "wrangler d1 create techclinc-db",
+    "db:migrate": "wrangler d1 migrations apply techclinc-db",
+    "db:local": "wrangler d1 execute techclinc-db --local --file=./schema.sql"
+  },
+  "keywords": [
+    "cloudflare-workers",
+    "d1",
+    "kv",
+    "mobile-repair",
+    "inventory"
+  ],
+  "author": "TechClinc",
+  "license": "MIT",
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.0",
+    "node-fetch": "^3.3.2"
+  }
+}
